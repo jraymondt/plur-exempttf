@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+*.log
+*.sql
+*.db
+*.DS_Store
+Thumbs.db
+.sass-cache/
+.env
