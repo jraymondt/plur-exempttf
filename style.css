@@ -14,23 +14,145 @@ Text Domain: the-exemplar
 Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, accessibility-ready, blog, portfolio, news
 
 /*
- * Link styles
+ * styles
  * https://github.com/WordPress/gutenberg/issues/42319
  */
+
+  /* Semantic Color Tokens (Light Mode) */
+
+:root {
+    /* Primary colours */
+  --midnight-navy: #2C3E50;  /* Professional, trustworthy */
+  --copper-gold: #B08D57;    /* Excellence, prestige */
+  
+  /* Secondary colours */
+  --warm-sand: #F4E1C1;      /* Comfort, hospitality */
+  --sage-green: #A8C3A0;     /* Growth, learning */
+  
+  /* Neutral colours */
+  --soft-white: #FAFAFA;     /* Clean, modern background */
+  --dark-text: #212529;
+  --grey-text: #818285;      /* Primary text colour */
+  
+  /* UI feedback colours */
+  --accent: #e67e22;         /* Orange (use sparingly) */
+  --success: #2ecc71;        /* Green */
+  --warning: #f1c40f;        /* Yellow */
+  --danger: #e74c3c;         /* Red */
+  --info: #3498db;           /* Blue */
+  
+  --space-xxs: calc(0.125rem + 0.1vmin); /* 2px+ */
+  --space-xs: calc(0.25rem + 0.2vmin);  /* 4px+ */
+  --space-sm: calc(0.5rem + 0.3vmin);   /* 8px+ */
+  --space-md: calc(1rem + 0.5vmin);     /* 16px+ */
+  --space-lg: calc(1.5rem + 0.7vmin);   /* 24px+ */
+  --space-xl: calc(2rem + 1vmin);       /* 32px+ */
+  --space-2xl: calc(3rem + 1.5vmin);    /* 48px+ */
+  --space-3xl: calc(4rem + 2vmin);      /* 64px+ */
+
+  --font-size-xs: calc(0.75rem + 0.2vmin);   /* Small text */
+  --font-size-sm: calc(0.875rem + 0.3vmin);  /* Secondary text */
+  --font-size-base: calc(1rem + 0.4vmin);    /* Body text */
+  --font-size-lg: calc(1.25rem + 0.5vmin);   /* Small headings */
+  --font-size-xl: calc(1.5rem + 0.7vmin);    /* H3 */
+  --font-size-2xl: calc(2rem + 0.9vmin);     /* H2 */
+  --font-size-3xl: calc(2.5rem + 1.1vmin);   /* H1 */
+
+    /* Spacing */
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  color: var(--dark-text);
+  background-color: var(--soft-white);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: var(--copper-gold);
+  line-height: 1.2;
+  margin-bottom: 0.8em;
+  text-shadow: var(--space-xxs) var(--space-xxs) 0 rgba(24, 3, 3, 0.213);
+}
+
+h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
 
 /*
  * Link styles
  * https://github.com/WordPress/gutenberg/issues/42319
  */
 a {
+	color: var(--color-primary);
 	text-decoration-thickness: 1px !important;
 	text-underline-offset: .1em;
+	transition: color var(--duration-fast) var(--ease-standard);
+}
+
+a:hover {
+	color: var(--color-primary-hover);
 }
 
 /* Focus styles */
 :where(.wp-site-blocks *:focus) {
-	outline-width: 2px;
-	outline-style: solid;
+	outline: var(--focus-outline);
+	outline-offset: 2px;
+	box-shadow: var(--focus-ring);
 }
 
 /* Increase the bottom margin on submenus, so that the outline is visible. */
@@ -62,4 +184,412 @@ h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
 */
 .more-link {
 	display: block;
+}
+
+.more-link:hover {
+	color: var(--color-primary-hover);
+}
+/* =================================================================================
+   PROFESSIONAL HOTEL ENHANCEMENTS
+   ================================================================================= */
+
+/* 
+ * Professional Header Styling
+ * Creates a luxury hotel header using design system colors
+ */
+.wp-site-blocks .wp-block-template-part[data-type="header"] {
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 100%);
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* 
+ * Enhanced Navigation Styling 
+ * Professional hospitality navigation using design system
+ */
+.wp-block-navigation {
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--letter-spacing-tight);
+    font-family: var(--font-family-base);
+}
+
+.wp-block-navigation-item a {
+    color: var(--color-text) !important;
+    padding: var(--space-12) var(--space-20);
+    transition: all var(--duration-normal) var(--ease-standard);
+    border-radius: var(--radius-base);
+    position: relative;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+}
+
+.wp-block-navigation-item a:hover {
+    background: var(--color-secondary);
+    color: var(--color-text) !important;
+    transform: translateY(-1px);
+}
+
+/* 
+ * Staff Portal Integration Button
+ * Links to Laravel backend using design system colors
+ */
+.staff-portal-access {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text) !important;
+    padding: var(--space-10) var(--space-20);
+    border-radius: var(--radius-full);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: all var(--duration-normal) var(--ease-standard);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
+    margin-left: var(--space-16);
+    font-size: var(--font-size-sm);
+    border: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.staff-portal-access:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.staff-portal-access::before {
+    content: "🏨";
+    font-size: var(--font-size-base);
+}
+
+/* 
+ * Professional Content Cards
+ * Hospitality service sections using design system
+ */
+.hospitality-service-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    margin: var(--space-24) 0;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration-normal) var(--ease-standard);
+    position: relative;
+    overflow: hidden;
+}
+
+.hospitality-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--space-4);
+    height: 100%;
+    background: var(--color-primary);
+}
+
+.hospitality-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+/* 
+ * Restaurant & Dining Section Styling
+ * Special styling for food service information
+ */
+.restaurant-info {
+    background: var(--color-secondary);
+    border-radius: var(--radius-base);
+    padding: var(--space-24);
+    margin: var(--space-16) 0;
+    border-left: 5px solid var(--color-primary);
+    box-shadow: var(--shadow-xs);
+}
+
+.restaurant-name {
+    color: var(--color-text);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-8);
+    line-height: var(--line-height-tight);
+}
+
+.restaurant-hours {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    padding: var(--space-8) var(--space-16);
+    border-radius: var(--radius-full);
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    margin: var(--space-8) 0;
+    font-weight: var(--font-weight-medium);
+}
+
+.dress-code-tag {
+    background: var(--color-warning);
+    color: var(--color-surface);
+    padding: var(--space-4) var(--space-12);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    display: inline-block;
+    margin-left: var(--space-8);
+    font-weight: var(--font-weight-medium);
+}
+
+/* 
+ * Spa & Wellness Section
+ * Using design system success color for wellness content
+ */
+.spa-wellness-section {
+    background: linear-gradient(135deg, var(--color-success) 0%, rgba(var(--color-success-rgb), 0.8) 100%);
+    color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-32);
+    margin: var(--space-32) 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.spa-wellness-section h3 {
+    color: var(--color-surface);
+    margin-bottom: var(--space-16);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* 
+ * Professional Buttons
+ * Enhanced button styling for booking and actions
+ */
+.wp-block-button.is-style-hotel-primary .wp-block-button__link {
+    background: var(--color-primary);
+    color: var(--color-btn-primary-text);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-16) var(--space-32);
+    border-radius: var(--radius-full);
+    transition: all var(--duration-normal) var(--ease-standard);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-tight);
+    font-size: var(--font-size-base);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wp-block-button.is-style-hotel-primary .wp-block-button__link:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.wp-block-button.is-style-hotel-primary .wp-block-button__link:focus {
+    outline: var(--focus-outline);
+    box-shadow: var(--focus-ring);
+}
+
+/* 
+ * Professional Form Styling
+ * Contact and booking forms with design system aesthetics
+ */
+.hotel-contact-form {
+    background: var(--color-surface);
+    padding: var(--space-32);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    box-shadow: var(--shadow-sm);
+    max-width: 600px;
+    margin: var(--space-32) auto;
+}
+
+.hotel-contact-form input,
+.hotel-contact-form select,
+.hotel-contact-form textarea {
+    width: 100%;
+    padding: var(--space-12);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-base);
+    transition: border-color var(--duration-fast) var(--ease-standard),
+        box-shadow var(--duration-fast) var(--ease-standard);
+    font-family: var(--font-family-base);
+}
+
+.hotel-contact-form input:focus,
+.hotel-contact-form select:focus,
+.hotel-contact-form textarea:focus {
+    border-color: var(--color-primary);
+    outline: var(--focus-outline);
+    box-shadow: var(--focus-ring);
+}
+
+.hotel-contact-form label {
+    display: block;
+    margin-bottom: var(--space-8);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.hotel-contact-form .form-group {
+    margin-bottom: var(--space-16);
+}
+
+/* 
+ * Mobile Responsive Enhancements
+ * Professional mobile experience with 480px breakpoint
+ */
+@media (max-width: 480px) {
+    .wp-site-blocks .wp-block-template-part[data-type="header"] {
+        padding: var(--space-8);
+    }
+    
+    .wp-block-navigation-item a {
+        padding: var(--space-8) var(--space-12);
+        font-size: var(--font-size-sm);
+    }
+    
+    .staff-portal-access {
+        margin: var(--space-8) 0 0 0;
+        width: 100%;
+        justify-content: center;
+        padding: var(--space-8) var(--space-16);
+        font-size: var(--font-size-xs);
+    }
+    
+    .hospitality-service-card {
+        padding: var(--space-16);
+        margin: var(--space-16) 0;
+    }
+    
+    .restaurant-info {
+        padding: var(--space-16);
+    }
+    
+    .spa-wellness-section {
+        padding: var(--space-20);
+        margin: var(--space-20) 0;
+    }
+    
+    .hotel-contact-form {
+        padding: var(--space-20);
+        margin: var(--space-20) var(--space-8);
+    }
+    
+    h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    h2 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    h3 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .staff-portal-access {
+        margin: var(--space-12) 0 0 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hospitality-service-card {
+        padding: var(--space-24);
+        margin: var(--space-16) 0;
+    }
+    
+    .restaurant-info {
+        padding: var(--space-16);
+    }
+    
+    .spa-wellness-section {
+        padding: var(--space-24);
+    }
+    
+    .hotel-contact-form {
+        padding: var(--space-24);
+        margin: var(--space-24) var(--space-16);
+    }
+}
+
+/* 
+ * Loading Animation for Professional Feel
+ * Subtle loading states for dynamic content using design system
+ */
+.loading-professional {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-secondary);
+    border-radius: var(--radius-base);
+}
+
+.loading-professional::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(var(--color-success-rgb), 0.2), transparent);
+    animation: shimmer var(--duration-normal) infinite ease-in-out;
+}
+
+@keyframes shimmer {
+    0% { 
+        left: -100%; 
+        transform: translateX(0);
+    }
+    100% { 
+        left: 100%; 
+        transform: translateX(0);
+    }
+}
+
+/* Additional responsive typography for better mobile experience */
+@media (max-width: 480px) {
+    .restaurant-name {
+        font-size: var(--font-size-lg);
+    }
+    
+    .restaurant-hours {
+        font-size: var(--font-size-xs);
+        padding: var(--space-6) var(--space-12);
+    }
+    
+    .dress-code-tag {
+        font-size: var(--font-size-xs);
+        padding: var(--space-2) var(--space-8);
+    }
+    
+    .wp-block-button.is-style-hotel-primary .wp-block-button__link {
+        padding: var(--space-12) var(--space-24);
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Focus states for accessibility */
+.hospitality-service-card:focus-within {
+    outline: var(--focus-outline);
+    box-shadow: var(--focus-ring);
+}
+
+.restaurant-info:focus-within {
+    outline: var(--focus-outline);
+    box-shadow: var(--focus-ring);
+}
+
+.spa-wellness-section:focus-within {
+    outline: var(--focus-outline);
+    box-shadow: var(--focus-ring);
 }
