@@ -613,6 +613,7 @@
 			"background": "var(--wp--preset--color--base)",
 			"text": "var(--wp--preset--color--contrast)"
 		},
+		"css": "body { background-color: var(--wp--preset--color--base) !important; } html { background-color: var(--wp--preset--color--base) !important; } .wp-site-blocks { background-color: var(--wp--preset--color--base) !important; } main { background-color: var(--wp--preset--color--base) !important; }",
 		"elements": {
 			"button": {
 				":focus": {
