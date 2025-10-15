@@ -23,8 +23,8 @@
 					"slug": "base"
 				},
 				{
-					"color": "#FAFAFA",
-					"name": "Soft White (Primary Text)",
+					"color": "#FFFFFF",
+					"name": "White (Primary Text)",
 					"slug": "contrast"
 				},
 				{
@@ -613,7 +613,7 @@
 			"background": "var(--wp--preset--color--base)",
 			"text": "var(--wp--preset--color--contrast)"
 		},
-		"css": "body { background-color: var(--wp--preset--color--base) !important; } html { background-color: var(--wp--preset--color--base) !important; } .wp-site-blocks { background-color: var(--wp--preset--color--base) !important; } main { background-color: var(--wp--preset--color--base) !important; }",
+		"css": "body { background-color: var(--wp--preset--color--base) !important; color: var(--wp--preset--color--contrast) !important; } html { background-color: var(--wp--preset--color--base) !important; } .wp-site-blocks { background-color: var(--wp--preset--color--base) !important; } main { background-color: var(--wp--preset--color--base) !important; } p, h1, h2, h3, h4, h5, h6, div, span { color: var(--wp--preset--color--contrast) !important; }",
 		"elements": {
 			"button": {
 				":focus": {
