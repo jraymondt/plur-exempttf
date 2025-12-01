@@ -9,10 +9,11 @@
 7. Content for Events/Dining(menu)
 
 ```html
-<div class="back-to-top__wrapper">
+<div class="back-to-top-box">
   <button class="back-to-top" aria-label="Back to top">
-	<svg class="back-to-top__icon" aria-hidden="true" focusable="false" width="28" height="47" viewBox="0 0 28 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<path d="M6 8.82715L14 1.00106" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M22 8.82715L14 1.00106" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+	<svg class="back-to-topicon" aria-hidden="true" focusable="false" width="28" height="47" viewBox="0 0 28 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M6 8.82715L14 1.00106" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">				</path>
+		<path d="M22 8.82715L14 1.00106" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 		</path>
 		<path d="M14 21L14 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 		</path>
