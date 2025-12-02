@@ -23,3 +23,164 @@
   </button>
 </div>
 ```
+can think of a better way to implement such things and maybe give us a step by step on how you would tackle these from a custom(twentytwentyfive) FSE block theme perspective.
+Here's a step-by-step checklist for tackling your website polish, along with practical guides and suggestions for each item—focused on a custom Twenty Twenty-Five Full Site Editing (FSE) block theme. I'll prioritise actionable advice so you can efficiently finish before your presentation.
+
+## Polish Checklist \& Practical Steps
+
+### 1. **Get Buttons to Work (/dining/, /beauty/)**
+
+- **Check Block Assignment**: Are your "Dining" and "Beauty" buttons made with the Button block in the FSE editor? Double-check that their URLs are correctly set (`/dining/`, `/beauty/`).
+- **Test Button Functionality**: Publish and test each button in a live/preview environment, checking that navigation works.
+- **Troubleshooting FSE Issues**
+- If links aren’t working, ensure your menu or button block is inside a Navigation or Groupblock,and check for custom JS that might interfere.
+- In some FSE builds, `Button` blocks require explicit URL settings in the sidebar—double-check there.
+
+### 2. **Front Hero Image: "Resorty" Look**
+
+- **Add Hero via Cover Block**:
+    - In FSE, choose the Cover block and set your hero image. For a resort look: use high-quality, bright images (palms, pools, open skies).
+- **Theme Branding**: Follow your brand style guide (theexemplar.com.au colors: gold, blue, white, slight resort tropical vibes).[^2]
+- **Styling Tips**:
+    - Overlay heading text with an accent color.
+    - Add padding/margin using block settings.
+    - Use block patterns to easily swap out hero images if reviewing with clients.
+
+### 3. **Footer Tweaks**
+
+- **Edit in Site Editor**:
+    - Go to Appearance → Editor (Site Editor), select Footer template part.
+- **Content \& Styling**:
+    - Insert footer navigation, contact info, copyright.
+    - Adjust font sizes, spacing, and colors using settings from your style guide (try soft-white backgrounds, gold or navy text).
+- **Custom Block**:
+    - Use a Columns block for multi-section footers (menu links, contact, legal, socials).
+    - Use the Social Icons block for quick links.
+
+
+### 4. **Dining Pic Tweaks ("hotpocket")**
+
+- **Image Block Enhancements**:
+    - Place dining images in relevant sections using Image, Gallery, or Media \& Text blocks.
+    - Ensure images have appropriate alt text for accessibility.
+    - Crop and resize images inside WordPress for sharper presentation.
+    - Use border-radius to create rounded corners for a modern effect.
+
+***
+
+### 5. **Return to Top / Sticky Menu**
+
+#### **Back-to-Top Button (HTML/JS Approach)**
+
+Use your provided markup, then add simple JavaScript:
+
+```html
+<button class="back-to-top" aria-label="Back to top">
+  <!-- SVG -->
+</button>
+<script>
+document.querySelector(".back-to-top").onclick = function() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+</script>
+```
+
+- **Placement**: Put the block at the end of your template (footer) or use FSE's Group block to float it on all pages.
+- **FSE Integration**: Make a custom block pattern containing your button and SVG for reuse.
+
+
+#### **Sticky Menu (CSS Only)**
+
+```css
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--soft-white);
+  z-index: 99;
+}
+```
+
+- **In the FSE Editor**: Add custom CSS via Appearance → Editor → Styles → Additional CSS.
+- Works best on the main header/navigation.
+
+***
+
+### 6. **Footer Details**
+
+- **Double-check Content**: Ensure all legal, contact info, and social links are correct.
+- **Style Consistency**: Reference your brand's color variables (see style guide).
+- **Accessibility**: Check contrast and font sizes.
+
+***
+
+### 7. **Content for Events/Dining (Menu)**
+
+#### **Gathering Content**
+
+- **Events**: List sample events for the hotel or dining (e.g., weddings, conferences, wine nights).
+- **Dining Menu**: Add a sample menu for OBriens Restaurant (see Solution Report \& meeting notes).
+    - Example:
+        - Starters: Garlic Bread, Oysters Kilpatrick
+        - Mains: Grilled Barramundi, Filet Mignon
+        - Desserts: Tiramisu, Pavlova
+- **Block Recommendations**:
+    - For Menus: Use the List block for menu items, with bold headings for sections.
+    - For Events: Use the Query Loop block to show upcoming events or featured items.
+
+***
+
+### 8. **Back-to-Top Button Implementation (improvement)**
+
+- **Consider a Core Pattern**: In Twenty Twenty-Five, make a pattern for your back-to-top button so editors can insert/remove on any page.
+- **Accessible SVG**: Confirm your SVG uses `aria-hidden="true"` for icons, and your button includes an accessible label.
+- **Style Button**:
+    - Use your color variables from the style guide.
+    - Add focus/hover states for accessibility.
+
+***
+
+### 9. **General FSE Polish Workflow**
+
+#### **Step-by-Step for Polish in FSE Block Theme**
+
+1. **Review major sections in Site Editor (Header, Footer, Page Templates)**
+2. **Add/adjust blocks as needed (Button, Cover, Image, List, Query Loop)**
+3. **Consistency check with style guide (colors, spacings, fonts)**
+4. **Test navigation and functionality in preview mode**
+5. **Mobile responsiveness**: Use WordPress's preview toggle for different screen sizes.
+6. **Accessibility check**: Ensure buttons have labels, images have alt text, and keyboard navigation works.
+
+***
+
+## Suggestions for Custom FSE Block Themes
+
+- **Custom Patterns**: Use patterns for reusable sections (hero, footer, menu).
+- **Style Variations**: Take advantage of FSE's global styles; apply your branding system (soft whites, copper gold, navy, resort imagery).[^2]
+- **Block-based Approach**:
+    - Stick to core blocks unless truly necessary; custom blocks can be added but require careful style matching.
+- **Accommodate Non-Tech Editors**: Make patterns easy to find and edit. Name them intuitively.
+- **Accessibility**: FSE makes it easy to add ARIA labels, alt text, and keyboard focus.
+
+***
+
+## References
+
+1. [Virtual Block Style Guide] Style variables, recommended colors and block patterns (see *styleshit.md*).
+2. [Wireframe Meeting Notes] General page flow, hotel sections, events suggestions (see *20250505wireframes-monday1031.txt*).
+3. [Hotel Solution Report] Brand, content for dining/events, page suggestions, technical recommendations (see *Solutions-Report-C.pdf*).
+
+***
+
+## Final Advice
+
+- Start by ticking off each item in preview mode, making small changes and saving as you go.
+- Use your theme’s FSE tools for layout and patterns.
+- Lean on your style guide for consistency.
+- Test everything in a real browser—including mobile.
+- Confirm accessibility basics before handover.
+
+If you need a more concrete example or code sample (like a reusable back-to-top block, sticky header CSS, or a sample dining menu block), let me know exactly which section you’d like a detailed walk-through for!
+
+
+
+
