@@ -236,7 +236,7 @@ Look, I'm going to be straight with you. We built this thing using WordPress Ful
 
 ## What We Actually Built
 
-This is a custom block theme called "bloxemplar" that uses WordPress's FSE capabilities. The entire site is built using blocks and the theme.json configuration file instead of traditional PHP templates.
+This is a custom block theme called "the-exemplar" that uses WordPress's FSE capabilities. The entire site is built using blocks and the theme.json configuration file instead of traditional PHP templates.
 
 **Current Status:**
 
@@ -253,6 +253,7 @@ This is a custom block theme called "bloxemplar" that uses WordPress's FSE capab
 - No caching plugin installed
 - Accessibility not comprehensively tested
 - Performance optimization needed
+- linking front and backend
 
 
 ## The FSE Situation - What You Need to Know
@@ -299,7 +300,7 @@ You've got three legitimate paths here:
 ## Current Theme Structure
 
 ```
-/wp-content/themes/bloxemplar/
+/wp-content/themes/the-exemplar
 ├── style.css              # Theme info and base styles
 ├── theme.json             # Core configuration (this is the big one)
 ├── functions.php          # Limited functions (not like classic themes)
